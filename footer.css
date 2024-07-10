@@ -1,0 +1,156 @@
+
+
+.footer{
+    width: 100%;
+    position: absolute;
+    background:linear-gradient(to right,white, rgb(0, 0, 0));
+    color: rgb(255, 255, 255);
+    padding: 100px 0 30px;
+    border-top-left-radius: 125px;
+    font-size: 13px;
+    line-height: 20px;
+    margin-top: 200px;
+}
+.footer_row{
+    width: 85%;
+    margin: auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.footer_col{
+    flex-basis: 25%;
+    padding: 10px;
+    
+}
+.footer_col:nth-child(2), .footer_col:nth-child(3){
+    flex-basis: 15%;
+}
+.footer_logo{
+    width: 88px;
+    margin-bottom: 30px;
+}
+.footer_description{
+    color: black;
+    font-weight: 600
+}
+.footer_col h3{
+    width: fit-content;
+    margin-bottom: 40px;
+    position: relative;
+    color: black;
+}
+.email-id{
+    width: fit-content;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    margin: 20px 0;
+}
+.footer_links li{
+    list-style: none;
+    margin-bottom: 12px;
+}
+.footer_links li a{
+    text-decoration: none;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+}
+.footer_links li a:hover{
+    color: black;
+}
+.footer_form{
+    padding-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid white;
+    margin-bottom: 50px;
+}
+.footer_form .footer_mail{
+    font-size: 18px;
+    margin-right: 10px;
+    color: #dbe1ab;
+}
+.footer_form input{
+    width: 100%;
+    background: transparent;
+    color: #878383 ;
+    border: 0;
+    outline: none;
+}
+.footer_form button{
+    background: transparent;
+    border: 0;
+    outline: none;
+    cursor: pointer;
+}
+.footer_form button .footer_arrow{
+    font-size: 16px;
+    color: #e8e3a7;
+}
+.footer_social i{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 40px;
+    font-size: 30px;
+    color: #000000;
+    background: #fff;
+    margin: 15px;
+    cursor: pointer;
+
+}
+.footer_social i:hover{
+    filter: drop-shadow(0 0 12px #dddd78);
+}
+hr{
+    width: 90%;
+    border: 0;
+    border-bottom: 1px solid #ccc;
+    margin: 20px auto;
+}
+.copyWrite{
+    text-align: center;
+}
+.underline{
+    width: 100%;
+    height: 5px;
+    background: #767676;
+    border-radius: 3px;
+    position: absolute;
+    top: 25px;
+    left: 0;
+    overflow: hidden;
+}
+.underline span{
+    width: 15px;
+    height: 100%;
+    background: #fff;
+    position: absolute;
+    top: 0;
+    left: 10px;
+    border-radius: 3px;
+    animation: moving 2s linear infinite;
+}
+@keyframes moving{
+    0%{
+        left: -20px;
+    }
+    100%{
+        left: 100%;
+    }
+}
+
+@media (max-width: 700px){
+    .footer{
+        bottom: unset;
+    }
+    .footer_col{
+        flex-basis: 100%;
+        
+    }
+    .footer_col:nth-child(2), .footer_col:nth-child(3){
+        flex-basis: 100%;
+    }
+}
