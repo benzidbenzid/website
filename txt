@@ -1,0 +1,217 @@
+/*
+
+import React, { useState, useEffect } from 'react';
+import './herosection.css'; // Ensure CSS file is correctly linked
+
+// Import your photos
+import photo2 from './2.jpg';
+import photo3 from './3.jpg';
+import photo4 from './4.jpg';
+import photo5 from './5.jpg';
+import photo from './rabbit.jpg';
+
+function Herosection() {
+  const [active, setActive] = useState(0);
+  const items = [
+    { id: 2, src: photo2 , text: "this is the text that i'll write" },
+    { id: 3, src: photo3 , text: "this is  i'll write"},
+    { id: 4, src: photo4 , text: "this is the text that i'll write"},
+    { id: 5, src: photo5 , text: "this is the text that i'll write"}
+  ];
+  const lengthItems = items.length;
+
+  const handleNext = () => {
+    setActive(prevActive => (prevActive + 1) % lengthItems);
+  };
+
+  const handlePrev = () => {
+    setActive(prevActive => (prevActive - 1 + lengthItems) % lengthItems);
+  };
+
+  useEffect(() => {
+    const refreshInterval = setInterval(() => {
+      handleNext();
+    }, 3000);
+
+    return () => {
+      clearInterval(refreshInterval);
+    };
+  }, []);
+
+  const handleDotClick = (index) => {
+    setActive(index);
+  };
+
+  return (
+    <div className="slider">
+      <div className="list">
+            {items.map((item, index) => (
+              <div
+                className={`item ${index === active ? 'active' : ''}`}
+                key={item.id}
+                style={{ display: index === active ? 'block' : 'none' }}
+              >
+                <img src={item.src} alt={`Slide ${index + 1}`} />
+                <p>{item.text}</p>
+              </div>
+            ))}
+      </div>
+      <div className="buttons">
+        <button id="prev" onClick={handlePrev}>{'<'}</button>
+        <button id="next" onClick={handleNext}>{'>'}</button>
+      </div>
+      <ul className="dots">
+        {items.map((item, index) => (
+          <li
+            key={item.id}
+            className={index === active ? 'active' : ''}
+            onClick={() => handleDotClick(index)}
+          ></li>
+        ))}
+      </ul>
+    </div>
+  );
+}
+
+export default Herosection; */
+/*
+-----------------------------------------------------------------------------------
+.slider {
+    width: 100%;
+    max-width: 1300px;
+    height: 600px;
+    margin: auto;
+    overflow: hidden;
+    position: relative;
+}
+  
+.slider .list {
+    position: relative;
+    top: 10px;
+    left: 0;
+    margin-top: 100px;
+    width: max-content;
+    display: flex;
+    transition: transform 3.5s ease;
+    overflow: hidden;
+}
+  
+.slider .list .item {
+    flex: 0 0 100%;
+}
+  
+.slider .list .item img {
+    max-width: 100vw;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    filter: blur(3px);
+}
+  
+.slider .buttons {
+    position: absolute;
+    top: 55%;
+    left: 5%;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+}
+  
+.slider .buttons button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: transparent;
+    color: white;
+    font-family: monospace;
+    font-weight: bold;
+    border: solid 1px white;
+    cursor: pointer;
+}
+  
+.slider .dots {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.slider .dots li {
+    list-style: none;
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    margin: 10px;
+    border-radius: 20px;
+    transition: 0.5s;
+}
+  
+.slider .dots li.active {
+    width: 30px;
+}
+p{
+    font-size: large;
+    position: absolute;
+    bottom: 150px;
+    left: 0;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    
+}
+@media screen and (max-width: 768px) {
+    .slider {
+      height: 400px;
+    }
+}
+*/
+/*--------------------------------------------
+@media screen and (max-width: 991px){
+    /* ipad, tablets *//* 
+    .carousel .list .item{
+      width: 90%;
+  }
+  .carousel.showDetail .list .item:nth-child(2) .detail .title{
+      font-size: 2em;
+  }
+}
+@media screen and (max-width: 767px){
+  /* mobile *//*
+  .carousel{
+      height: 600px;
+  }
+  .carousel .list .item{
+      width: 100%;
+      font-size: 10px;
+  }
+  
+  .carousel .list{
+      height: 100%;
+  }
+  .carousel .list .item:nth-child(2) .introduce{
+      width: 50%;
+  }
+  
+  .carousel .list .item img{
+      width: 40%;
+  }
+  .carousel.showDetail .list .item:nth-child(2) .detail{
+      backdrop-filter: blur(10px);
+      font-size: small;
+  }
+  .carousel .list .item:nth-child(2) .introduce .des,
+  .carousel.showDetail .list .item:nth-child(2) .detail .des{
+      height: 100px;
+      overflow: auto;
+  }
+}
+
+
+
+
+
+*/
