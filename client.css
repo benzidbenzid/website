@@ -1,0 +1,102 @@
+body{
+    background-color: #000000;
+}
+.client_container{
+    margin-top: 50px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 30vh;
+    background: rgb(101,163,148);
+    background: radial-gradient(circle, rgba(170, 191, 186, 0.787) 0%, rgba(51,55,55,0.929651084066439) 100%);
+}
+.client_list{
+    position: relative;
+    transform-style: preserve-3d;
+    perspective: 50px;
+    display: flex;
+    flex-direction: column ;
+    grid-area: 0;
+    transition: 0.5s;
+   
+}
+.client_list .client_item{
+    position: relative;
+    list-style: none;
+    width: 650px;
+    height: 100px;
+    padding: 15px;
+    background: white;
+    gap: 20px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    border-radius: 6px;
+    box-shadow: 0 -15px 25px rgba(0, 0, 0, 0.25);
+    transition: 0.5s;
+    transition-delay: calc(var(--i) * 0.05s);
+}
+
+.client_list .client_item:nth-child(1){
+    transform: translateZ(-16px) translateY(20px);
+}
+.client_list .client_item:nth-child(2){
+    transform: translateZ(-15px) translateY(-20px);
+}
+.client_list .client_item:nth-child(3){
+    transform: translateZ(-10px) translateY(-60px);
+}
+.client_list .client_item:nth-child(4){
+    transform: translateZ(-7px) translateY(-100px);
+}
+.client_list .client_item:nth-child(5){
+    transform: translateZ(-4px) translateY(-140px);
+}
+
+
+.client_list:hover {
+    gap: 50px;
+    width: 700px;
+}
+.client_tag{
+    margin-top: -300px;
+    font-size: 3em;
+    border-bottom: 1px solid;
+    color: white;
+}
+
+.client_list .client_item:hover{
+    filter: drop-shadow(0 0 9px #abae53);
+    height: 160px;
+}
+
+
+
+
+
+.client_list .client_item img{
+    max-width: 70px;
+    border-radius: 4px;
+}
+.client_list .client_item .content{
+    width: 100%;
+    cursor: pointer;
+}
+.client_list .client_item .content h4{
+    font-weight: 600;
+    color: black;
+}
+.client_list .client_item .content p{
+    position: relative;
+    color: black;
+    line-height: 1em;
+    width: 100%;
+}
+.client_des{
+    margin-left: -250px;
+    font-weight: 600;
+    padding: 10px;
+    color: rgb(0, 0, 0);
+}
+
