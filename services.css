@@ -1,0 +1,351 @@
+/*=============== GOOGLE FONTS ===============*/
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100..900&display=swap");
+
+/*=============== VARIABLES CSS ===============*/
+:root {
+  /*========== Colors ==========*/
+  /*Color mode HSL(hue, saturation, lightness)*/
+  --first-color: hsl(173, 62%, 34%);
+  --first-color-alt: hsl(177, 44%, 65%);
+  --title-color: hsl(0, 0%, 100%);
+  --text-color: hsl(5, 8%, 35%);
+  --white-color: hsl(0, 0%, 100%);
+  --body-color: hsl(185, 8%, 72%);
+
+  /*========== Font and typography ==========*/
+  /*.5rem = 8px | 1rem = 16px ...*/
+  --body-font: "Montserrat", sans-serif;
+  --h1-font-size: 1.5rem;
+  --h2-font-size: 1.25rem;
+  --h3-font-size: 1rem;
+  --normal-font-size: .938rem;
+
+  /*========== Font weight ==========*/
+  --font-regular: 400;
+  --font-semi-bold: 600;
+  --font-bold: 700;
+
+  /*========== z index ==========*/
+  --z-normal: 1;
+  --z-modal: 1000;
+}
+
+/*========== Responsive typography ==========*/
+@media screen and (min-width: 1150px) {
+  :root {
+    --h1-font-size: 2.25rem;
+    --h2-font-size: 1.5rem;
+    --h3-font-size: 1.25rem;
+    --normal-font-size: 1rem;
+  }
+}
+
+/*=============== BASE ===============*/
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/*=============== CARD ===============*/
+.container {
+  margin-inline: 1.5rem;
+  padding-block: 5rem;
+  margin-left: 65px;
+}
+
+.container__title {
+    position: absolute;
+    width: 300px;
+  font-size: 40px;
+  text-align: center;
+  color: rgb(255, 255, 255);
+  margin-bottom: 700px;
+  border-bottom: 1px solid;
+  margin-right: -300px;
+}
+
+.card__container {
+  display: grid;
+  grid-template-columns: 1fr;
+  justify-content: center;
+  gap: 2rem;
+  margin-top: 50px;
+}
+
+.card__product {
+    background: rgb(136,147,144);
+    background: radial-gradient(circle, rgba(34, 36, 35, 0.787) 0%, rgba(197, 241, 231, 0.93) 100%);
+  padding-block: 1.25rem;
+  text-align: center;
+  display: grid;
+  row-gap: 1.5rem;
+  cursor: pointer;
+  
+  border-radius: 10px 50px 10px 10px;
+}
+
+.card__img {
+  width: 140px;
+  justify-self: center;
+  filter: drop-shadow(0 8px 16px hsla(5, 90%, 4%, .2));
+  transition: transform .3s;
+}
+
+.card__name {
+  font-size: var(--h3-font-size);
+  color: var(--title-color);
+  margin-bottom: .5rem;
+}
+
+.card__price {
+  font-size: 10px;
+  color: rgb(32, 60, 61);
+  border-bottom: 1px solid;
+}
+
+.card__product:hover .card__img {
+  transform: scale(1.1);
+}
+
+/*=============== POPUP MODAL ===============*/
+.modal {
+  position: fixed;
+  inset: 0;
+  background-color: hsla(5, 90%, 4%, .2);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(24px);
+  display: grid;
+  place-items: center;
+  padding: 2rem 1.5rem;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  z-index: var(--z-modal);
+  transition: opacity .4s, visibility .4s;
+}
+
+.modal__card {
+  position: relative;
+  background-color: var(--body-color);
+  padding: 3rem 1.25rem 2rem;
+  display: grid;
+  row-gap: 1.5rem;
+  text-align: center;
+  transform: rotateX(90deg);
+  transition: transform .6s;
+  width: 400px;
+  overflow: hidden;
+  width: 600px;
+}
+
+.modal__close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 1.5rem;
+  color: var(--title-color);
+  cursor: pointer;
+}
+
+.modal__img {
+  width: 170px;
+  justify-self: center;
+  filter: drop-shadow(0 8px 16px hsla(5, 90%, 4%, .2));
+}
+
+.modal__info {
+  margin-bottom: .5rem;
+}
+
+.modal__buttons {
+  display: flex;
+  gap: .5rem;
+}
+
+.modal__button {
+  flex-grow: 1;
+  outline: none;
+  border: none;
+  background-color: var(--first-color);
+  padding-block: 1rem;
+  color: var(--white-color);
+  font: var(--normal-font-size) var(--body-font);
+  cursor: pointer;
+  transition: background-color .4s;
+  width: 100px;
+}
+
+.modal__button:hover {
+  background-color: var(--first-color-alt);
+}
+
+.modal__button-ghost {
+  background-color: var(--body-color);
+  color: var(--title-color);
+  border: 3px solid var(--first-color);
+}
+
+.modal__button-ghost:hover {
+  background-color: var(--body-color);
+}
+
+/* Active modal */
+.active-modal {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: initial;
+}
+
+.active-modal .modal__card {
+  transform: rotateX(0);
+}
+
+
+/*=============== BREAKPOINTS ===============*/
+/* For small devices */
+@media screen and (max-width: 300px) {
+  .container {
+    margin-inline: 1rem;
+  }
+
+  .modal {
+    padding-inline: 1rem;
+  }
+  .modal__buttons {
+    flex-direction: column;
+  }
+  .container__title{
+    margin-right:0px;
+    margin-top: -360px;
+  }
+  .service{
+    width:  500px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:-850px;
+    margin-left: -170px;
+    font-size: 8px;
+
+  }
+
+}
+
+/* For medium devices */
+@media screen and (min-width: 540px) {
+  .card__container {
+    grid-template-columns: 330px;
+  }
+
+  .modal__card {
+    max-width: 350px;
+  }
+  .container__title{
+    margin-right:0px;
+    margin-top: -360px;
+  }
+  .service{
+    width:  500px;
+    display: flex;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:-850px;
+    margin-left: -100px;
+    font-size: 10px;
+
+  }
+  
+}
+
+@media screen and (min-width: 768px) {
+  .card__container {
+    grid-template-columns: repeat(2, 330px);
+  }
+  .container__title{
+    margin-left: 0px;
+    margin-top: 100px;
+  }
+  .service{
+    width:  500px;
+    position: absolute;
+    align-items: center;
+    justify-content: center;
+    margin-bottom:-400px;
+    margin-left: 0px;
+    margin-left: 0px;
+
+  }
+
+}
+
+/* For large devices */
+@media screen and (min-width: 1150px) {
+
+  .card__container {
+    grid-template-columns: repeat(3, 330px);
+    gap: 3rem;
+  }
+  .card__product {
+    padding-block: 2rem;
+    border-width: 6px;
+  }
+  .card__name, 
+  .card__price {
+    font-size: var(--h3-font-size);
+  }
+
+  .modal__card {
+    max-width: 376px;
+    padding: 3rem 2.5rem 2.5rem;
+  }
+  .modal__img {
+    width: 250px;
+  }
+  .modal__name, 
+  .modal__price {
+    font-size: var(--h3-font-size);
+  }
+  .modal__buttons {
+    column-gap: 1rem;
+  }
+  .container__title{
+   margin-top: 0;
+  }
+
+}
+
+.service{
+  width: 700px;
+  position: absolute;
+  align-items: center;
+  justify-content: center;
+  margin-top: 0px;
+    padding-left: 150px;
+  flex-direction: column;
+  font-size: 15px;
+}
+.service_tag{
+  color: rgb(138, 137, 137);
+  margin-left: 50px;
+}
+.service_des{
+  margin-left: 100px;
+  margin-top: 20px;
+  padding-bottom: 20px;
+  width: 500px;
+  border-bottom: 1.5px solid;
+  border-radius: 0 0 50px 0px;
+  font-weight: 600;
+  color: white;
+
+}
